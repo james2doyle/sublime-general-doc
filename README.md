@@ -8,6 +8,16 @@
 
 This packages allows you to list an array of symbols and supply a URL that will be used to point to the documentation for that symbol.
 
+### Use Cases
+
+There are lots of "languages" (mostly templating ones) that don't have support for more of the common features of languages that can be statically analysed or run through a [LSP](https://microsoft.github.io/language-server-protocol/).
+
+This package allows you to provide a nice popup for words that are being hovered over that will link to documentation for that symbol. For languages with lots of keywords and features that don't require being "analysed", this can be really helpful.
+
+This package works by allowing you to define your documentation structure in the plugins settings file so that when hovered words are matched, it will give you a popup with a link to documentation.
+
+You can provide a single documentation URL for a group of words, or make a group for each word. The documetations are divided into Sublime "scopes" so that they are only used on scopes that actually have matching documentation supplied.
+
 ## Installation
 
 With [Package Control](http://wbond.net/sublime_packages/package_control) (look for "General Doc"), or just drop the plugin into Sublime Text's Packages folder.
@@ -48,7 +58,7 @@ Take note of the escaped slashes and the quoting around the name.
 
 The ampersand at the end is significant - without it the editor will hang and wait for browser to close.
 
-### References
+## References
 
 - Packages/Default/symbol.py
 - [leonid-shevtsov/ClickableUrls_SublimeText](https://github.com/leonid-shevtsov/ClickableUrls_SublimeText)
