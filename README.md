@@ -22,13 +22,13 @@ file, to which you can get from the menu.
 Anything from [this list](https://docs.python.org/2/library/webbrowser.html#webbrowser.register) will work, for example:
 
     {
-        "clickable_urls_browser": "firefox"
+        "browser": "firefox"
     }
 
 **Note for Windows users.** If the browser you want won't open, you might have to specify the full path manually:
 
     {
-        "clickable_urls_browser": "\"c:\\program files\\mozilla firefox\\firefox.exe\" %s &"
+        "browser": "\"c:\\program files\\mozilla firefox\\firefox.exe\" %s &"
     }
 
 Take note of the escaped slashes and the quoting around the name.
@@ -38,3 +38,8 @@ The ampersand at the end is significant - without it the editor will hang and wa
 ### Documentation structure
 
 See [GeneralDoc.sublime-settings](GeneralDoc.sublime-settings) for an example of the structure.
+
+### References
+
+- Packages/Default/symbol.py
+- [leonid-shevtsov/ClickableUrls_SublimeText](https://github.com/leonid-shevtsov/ClickableUrls_SublimeText)
