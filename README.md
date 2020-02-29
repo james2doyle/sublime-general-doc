@@ -16,6 +16,15 @@ With [Package Control](http://wbond.net/sublime_packages/package_control) (look 
 
 All configuration is done via the settings file that you can open via the main menu: `Preferences > Package Settings > General Doc > Settings - User`.
 
+### Documentation structure
+
+See [GeneralDoc.sublime-settings](GeneralDoc.sublime-settings) for an example of the structure.
+
+### Built-in documentation
+
+- [x] Liquid (using [shopify.github.io/liquid](https://shopify.github.io/liquid/] or [shopify.dev/docs/liquid](https://shopify.dev/docs/liquid))
+- [ ] more examples to come!
+
 ### Customising the browser
 
 By default, General Doc uses the default system browser. If it doesn't work for you, you can change the browser by setting the `browser` in the `GeneralDoc.sublime-settings`
@@ -36,10 +45,6 @@ Anything from [this list](https://docs.python.org/2/library/webbrowser.html#webb
 Take note of the escaped slashes and the quoting around the name.
 
 The ampersand at the end is significant - without it the editor will hang and wait for browser to close.
-
-### Documentation structure
-
-See [GeneralDoc.sublime-settings](GeneralDoc.sublime-settings) for an example of the structure.
 
 ### References
 
