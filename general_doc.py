@@ -1,9 +1,19 @@
+import logging
 import sublime
 import sublime_plugin
 import webbrowser
 
 SETTINGS_FILENAME = 'GeneralDoc.sublime-settings'
 settings = sublime.load_settings(SETTINGS_FILENAME)
+
+format = "GeneralDoc %(asctime)s: %(message)s"
+logging.basicConfig(format=format, level=logging.INFO,
+                    datefmt="%H:%M:%S")
+
+def log(message: str, value: any):
+    log_enabled = settings.get('logging')
+    if log_enabled:
+        logging.info(message, value)
 
 # From: Packages/Default/symbol.py
 # View Package File > Default/symbol.py
@@ -59,17 +69,28 @@ class GeneralDoc(sublime_plugin.EventListener):
             return
 
         scope = view.scope_name(view.sel()[0].begin()).strip()
+        log("document scope: %s", scope)
 
         docs = settings.get('docs')
 
         matching_doc = filter(lambda doc: doc["scope"] in scope, docs)
 
+        created_popup = False
+
         for matched_scope in matching_doc:
+            log("popup created: %s", created_popup)
+
+            if created_popup:
+                continue
+
             if "name" not in matched_scope:
                 sublime.error_message('Missing "name" key in scope definition. See "Documentation structure" in the README.')
                 return
 
             matching_name = matched_scope["name"]
+
+            log("matching scope: %s", matching_name)
+
             if "cases" not in matched_scope:
                 sublime.error_message('Missing "cases" key in scope definition. See "Documentation structure" in the README.')
                 return
@@ -84,6 +105,8 @@ class GeneralDoc(sublime_plugin.EventListener):
 
             if len(word) < 1:
                 return
+
+            log("matching word: %s", word)
 
             for case in cases:
                 if "matches" not in case:
@@ -102,6 +125,7 @@ class GeneralDoc(sublime_plugin.EventListener):
                     continue
 
                 url = case["url"].replace("$1", word)
+                log("doc url: %s", url)
 
                 view.show_popup(make_popup(matching_name, url, word),
                     sublime.HIDE_ON_MOUSE_MOVE_AWAY,
@@ -109,6 +133,8 @@ class GeneralDoc(sublime_plugin.EventListener):
                     *view.viewport_extent(),
                     on_navigate=open_url
                 )
+
+                created_popup = True
 
 # More code stolen from symbol.py
 def make_popup(name: str, url: str, word: str):

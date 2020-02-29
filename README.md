@@ -37,6 +37,16 @@ See [GeneralDoc.sublime-settings](GeneralDoc.sublime-settings) for an example of
 - [x] Liquid (using [shopify.github.io/liquid](https://shopify.github.io/liquid/) or [shopify.dev/docs/liquid](https://shopify.dev/docs/liquid))
 - [ ] more examples to come!
 
+### Debugging
+
+Set `logging` to `true` in the plugin settings to help debug your documentation definition as well as what the plugin is doing:
+
+    {
+        "logging": true,
+    }
+
+Open the Sublime Console (View > Show Console) to see the logging output.
+
 ### Customising the browser
 
 By default, General Doc uses the default system browser. If it doesn't work for you, you can change the browser by setting the `browser` in the `GeneralDoc.sublime-settings`
