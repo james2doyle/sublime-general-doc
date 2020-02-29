@@ -65,54 +65,49 @@ class GeneralDoc(sublime_plugin.EventListener):
 
         matching_doc = filter(lambda doc: doc["scope"] in scope, docs)
 
-        matched_scope = next(matching_doc, None)
-        # handle cases where the iterator is "empty"
-        if not matched_scope:
-            # no matching scopes found
-            return
+        for matched_scope in matching_doc:
+            if "name" not in matched_scope:
+                sublime.error_message('Missing "name" key in scope definition. See "Documentation structure" in the README.')
+                return
 
-        if "name" not in matched_scope:
-            sublime.error_message('Missing "name" key in scope definition. See "Documentation structure" in the README.')
-            return
+            matching_name = matched_scope["name"]
+            if "cases" not in matched_scope:
+                sublime.error_message('Missing "cases" key in scope definition. See "Documentation structure" in the README.')
+                return
 
-        matching_name = matched_scope["name"]
-        if "cases" not in matched_scope:
-            sublime.error_message('Missing "cases" key in scope definition. See "Documentation structure" in the README.')
-            return
+            cases = matched_scope["cases"]
 
-        cases = matched_scope["cases"]
+            if len(cases) < 1:
+                sublime.error_message('Missing "cases" key in scope definition. See "Documentation structure" in the README.')
+                return
 
-        if len(cases) < 1:
-            sublime.error_message('Missing "cases" key in scope definition. See "Documentation structure" in the README.')
-            return
+            word, _ = symbol_at_point(view, point)
 
-        word, _ = symbol_at_point(view, point)
+            if len(word) < 1:
+                return
 
-        if len(word) < 1:
-            return
+            for case in cases:
+                if "matches" not in case:
+                    sublime.error_message('Missing "matches" key in case definition. See "Documentation structure" in the README.')
+                    continue
 
-        for case in cases:
-            if "matches" not in case:
-                sublime.error_message('Missing "matches" key in case definition. See "Documentation structure" in the README.')
-                continue
+                if len(case["matches"]) < 1:
+                    sublime.error_message('Missing "matches" in scope definition. See "Documentation structure" in the README.')
+                    continue
 
-            if len(case["matches"]) < 1:
-                sublime.error_message('Missing "matches" in scope definition. See "Documentation structure" in the README.')
-                continue
+                if "url" not in case:
+                    sublime.error_message('Missing "url" key in case definition. See "Documentation structure" in the README.')
+                    continue
 
-            if "url" not in case:
-                sublime.error_message('Missing "url" key in case definition. See "Documentation structure" in the README.')
-                continue
+                if word in case["matches"]:
+                    url = case["url"].replace("$1", word)
 
-            if word in case["matches"]:
-                url = case["url"].replace("$1", word)
-
-                view.show_popup(make_popup(matching_name, url, word),
-                    sublime.HIDE_ON_MOUSE_MOVE_AWAY,
-                    point,
-                    *view.viewport_extent(),
-                    on_navigate=open_url
-                )
+                    view.show_popup(make_popup(matching_name, url, word),
+                        sublime.HIDE_ON_MOUSE_MOVE_AWAY,
+                        point,
+                        *view.viewport_extent(),
+                        on_navigate=open_url
+                    )
 
 # More code stolen from symbol.py
 def make_popup(name: str, url: str, word: str):
