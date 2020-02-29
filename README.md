@@ -22,8 +22,9 @@ See [GeneralDoc.sublime-settings](GeneralDoc.sublime-settings) for an example of
 
 ### Built-in documentation
 
-- [x] Liquid (using [shopify.github.io/liquid](https://shopify.github.io/liquid/) or [shopify.dev/docs/liquid](https://shopify.dev/docs/liquid))
 - [x] HTML (using [MDN Web/HTML/Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element))
+- [x] Twig (using [twig.symfony.com/doc/2.x](https://twig.symfony.com/doc/2.x/))
+- [x] Liquid (using [shopify.github.io/liquid](https://shopify.github.io/liquid/) or [shopify.dev/docs/liquid](https://shopify.dev/docs/liquid))
 - [ ] more examples to come!
 
 ### Customising the browser
