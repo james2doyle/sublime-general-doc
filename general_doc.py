@@ -3,6 +3,7 @@ import sublime_plugin
 import webbrowser
 
 SETTINGS_FILENAME = 'GeneralDoc.sublime-settings'
+settings = sublime.load_settings(SETTINGS_FILENAME)
 
 # From: Packages/Default/symbol.py
 # View Package File > Default/symbol.py
@@ -54,8 +55,6 @@ def symbol_at_point(view, pt):
 
 class GeneralDoc(sublime_plugin.EventListener):
     def on_hover(self, view: sublime.View, point: int, hover_zone: int):
-        settings = sublime.load_settings(SETTINGS_FILENAME)
-
         if not settings or hover_zone != sublime.HOVER_TEXT:
             return
 
@@ -99,15 +98,17 @@ class GeneralDoc(sublime_plugin.EventListener):
                     sublime.error_message('Missing "url" key in case definition. See "Documentation structure" in the README.')
                     continue
 
-                if word in case["matches"]:
-                    url = case["url"].replace("$1", word)
+                if word not in case["matches"]:
+                    continue
 
-                    view.show_popup(make_popup(matching_name, url, word),
-                        sublime.HIDE_ON_MOUSE_MOVE_AWAY,
-                        point,
-                        *view.viewport_extent(),
-                        on_navigate=open_url
-                    )
+                url = case["url"].replace("$1", word)
+
+                view.show_popup(make_popup(matching_name, url, word),
+                    sublime.HIDE_ON_MOUSE_MOVE_AWAY,
+                    point,
+                    *view.viewport_extent(),
+                    on_navigate=open_url
+                )
 
 # More code stolen from symbol.py
 def make_popup(name: str, url: str, word: str):
