@@ -6,6 +6,115 @@
             "scope": "source.liquid",
             "cases": [
                 {
+                    "url": "https://shopify.dev/docs/liquid/reference/filters/additional-filters#$1",
+                    "matches": [
+                        "default_errors",
+                        "default_pagination",
+                        "format_address",
+                        "highlight",
+                        "highlight_active_tag",
+                        "json",
+                        "weight_with_unit",
+                        "placeholder_svg_tag"
+                    ]
+                },
+                {
+                    "url": "https://shopify.dev/docs/liquid/reference/filters/url-filters#$1",
+                    "matches": [
+                        "asset_url",
+                        "asset_img_url",
+                        "file_url",
+                        "file_img_url",
+                        "customer_login_link",
+                        "global_asset_url",
+                        "img_url",
+                        "link_to",
+                        "link_to_vendor",
+                        "link_to_type",
+                        "link_to_tag",
+                        "link_to_add_tag",
+                        "link_to_remove_tag",
+                        "payment_type_img_url",
+                        "shopify_asset_url",
+                        "sort_by",
+                        "url_for_type",
+                        "url_for_vendor",
+                        "within"
+                    ]
+                },
+                {
+                    "url": "https://shopify.dev/docs/liquid/reference/filters/money-filters#$1",
+                    "matches": [
+                        "money",
+                        "money_with_currency",
+                        "money_without_trailing_zeros",
+                        "money_without_currency"
+                    ]
+                },
+                {
+                    "url": "https://shopify.dev/docs/liquid/reference/filters/media-filters#$1",
+                    "matches": [
+                        "external_video_tag",
+                        "external_video_url",
+                        "media_tag",
+                        "model_viewer_tag",
+                        "video_tag"
+                    ]
+                },
+                {
+                    "url": "https://shopify.dev/docs/liquid/reference/filters/html-filters#$1",
+                    "matches": [
+                        "img_tag",
+                        "currency_selector",
+                        "payment_button",
+                        "script_tag",
+                        "stylesheet_tag",
+                        "time_tag",
+                        "payment_type_svg_tag"
+                    ]
+                },
+                {
+                    "url": "https://shopify.dev/docs/liquid/reference/filters/font-filters#$1",
+                    "matches": [
+                        "font_modify",
+                        "font_face",
+                        "font_url"
+                    ]
+                },
+                {
+                    "url": "https://shopify.dev/docs/liquid/reference/filters/color-filters#$1",
+                    "matches": [
+                        "color_to_rgb",
+                        "color_to_hsl",
+                        "color_to_hex",
+                        "color_extract",
+                        "color_brightness",
+                        "color_modify",
+                        "color_lighten",
+                        "color_darken",
+                        "color_saturate",
+                        "color_desaturate",
+                        "color_mix",
+                        "color_contrast",
+                        "color_difference",
+                        "brightness_difference"
+                    ]
+                },
+                {
+                    "url": "https://shopify.dev/docs/liquid/reference/tags/theme-tags#$1",
+                    "matches": [
+                        "comment",
+                        "form",
+                        "layout",
+                        "liquid",
+                        "paginate",
+                        "raw",
+                        "render",
+                        "section",
+                        "style"
+                    ]
+                },
+                {
                     "url": "https://shopify.github.io/liquid/filters/$1/",
                     "matches": [
                         "abs",
