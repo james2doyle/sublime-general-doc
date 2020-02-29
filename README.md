@@ -1,6 +1,8 @@
 # General Doc
 
-A plugin for [Sublime Text 3](http://sublimetext.com) that creates documentation from it's own config
+> A plugin for [Sublime Text 3](http://sublimetext.com) that creates documentation from it's own config
+
+![demo](demo.gif)
 
 ## Summary
 
