@@ -22,7 +22,7 @@ See [GeneralDoc.sublime-settings](GeneralDoc.sublime-settings) for an example of
 
 ### Built-in documentation
 
-- [x] Liquid (using [shopify.github.io/liquid](https://shopify.github.io/liquid/] or [shopify.dev/docs/liquid](https://shopify.dev/docs/liquid))
+- [x] Liquid (using [shopify.github.io/liquid](https://shopify.github.io/liquid/) or [shopify.dev/docs/liquid](https://shopify.dev/docs/liquid))
 - [ ] more examples to come!
 
 ### Customising the browser
