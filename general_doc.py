@@ -4,13 +4,13 @@ import sublime_plugin
 import webbrowser
 
 SETTINGS_FILENAME = 'GeneralDoc.sublime-settings'
-settings = sublime.load_settings(SETTINGS_FILENAME)
 
 format = "GeneralDoc %(asctime)s: %(message)s"
 logging.basicConfig(format=format, level=logging.INFO,
                     datefmt="%H:%M:%S")
 
 def log(message: str, value: any):
+    settings = sublime.load_settings(SETTINGS_FILENAME)
     log_enabled = settings.get('logging')
     if log_enabled:
         logging.info(message, value)
@@ -65,6 +65,8 @@ def symbol_at_point(view, pt):
 
 class GeneralDoc(sublime_plugin.EventListener):
     def on_hover(self, view: sublime.View, point: int, hover_zone: int):
+        settings = sublime.load_settings(SETTINGS_FILENAME)
+
         if not settings or hover_zone != sublime.HOVER_TEXT:
             return
 
