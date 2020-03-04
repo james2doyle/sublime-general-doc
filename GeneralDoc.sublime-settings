@@ -238,6 +238,22 @@
                     ]
                 },
                 {
+                    "url": "https://shopify.dev/docs/liquid/reference/filters/string-filters#$1",
+                    "matches": [
+                        "camelcase",
+                        "handle",
+                        "handleize",
+                        "hmac_sha1",
+                        "hmac_sha256",
+                        "md5",
+                        "newline_to_br",
+                        "pluralize",
+                        "sha1",
+                        "sha256"
+
+                    ]
+                },
+                {
                     "url": "https://shopify.github.io/liquid/filters/$1/",
                     "matches": [
                         "abs",
