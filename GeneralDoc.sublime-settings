@@ -241,8 +241,6 @@
                     "url": "https://shopify.dev/docs/liquid/reference/filters/string-filters#$1",
                     "matches": [
                         "camelcase",
-                        "handle",
-                        "handleize",
                         "hmac_sha1",
                         "hmac_sha256",
                         "md5",
@@ -250,7 +248,13 @@
                         "pluralize",
                         "sha1",
                         "sha256"
-
+                    ]
+                },
+                {
+                    "url": "https://shopify.dev/docs/liquid/reference/filters/string-filters#handle-handleize",
+                    "matches": [
+                        "handle",
+                        "handleize"
                     ]
                 },
                 {
