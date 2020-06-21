@@ -369,7 +369,7 @@
         },
         {
             "name": "HTML",
-            "scope": "text.html.basic",
+            "scope": "text.html.basic - source.php",
             "cases": [
                 {
                     "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/$1",
